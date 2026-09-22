@@ -9,6 +9,11 @@ install/
 *.env
 !example.env
 
+# Local Codex/project-agent notes
+.codex/
+AGENTS.md
+agent.md
+
 # Python
 __pycache__/
 *.py[cod]

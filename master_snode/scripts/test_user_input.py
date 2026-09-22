@@ -112,13 +112,9 @@ class TankTestController:
         print("  1. start         - Start tank cleaning operation")
         print("  2. stop          - Stop tank cleaning operation") 
         print("  3. status        - Get current tank status")
-        print("  4. drain         - Drain tank water")
-        print("  5. fill          - Fill tank with fresh water")
-        print("  6. water_change  - Complete water change cycle")
-        print("  7. pump_stop     - Stop all pump operations")
-        print("  8. system_status - Get complete system status")
-        print("  9. help          - Show this menu")
-        print(" 10. quit          - Exit test program")
+        print("  4. system_status - Get complete system status")
+        print("  5. help          - Show this menu")
+        print("  6. quit          - Exit test program")
         
     def run_interactive_test(self):
         """Run the interactive test interface"""
@@ -131,11 +127,11 @@ class TankTestController:
             try:
                 user_input = input("\nEnter command (or 'help' for menu): ").strip().lower()
                 
-                if user_input in ['quit', 'exit', 'q', '10']:
+                if user_input in ['quit', 'exit', 'q', '6']:
                     print("Exiting test controller...")
                     break
                     
-                elif user_input in ['help', 'h', '9']:
+                elif user_input in ['help', 'h', '5']:
                     self.show_menu()
                     
                 # Tank controls
@@ -152,25 +148,8 @@ class TankTestController:
                     self.status_requested = True  # Flag to show status when received
                     self.send_command('status')
                     
-                # Pump controls
-                elif user_input in ['drain', '4']:
-                    print("\nStarting tank drain operation...")
-                    self.send_command('drain')
-                    
-                elif user_input in ['fill', '5']:
-                    print("\nStarting tank fill operation...")
-                    self.send_command('fill')
-                    
-                elif user_input in ['water_change', '6']:
-                    print("\nStarting complete water change cycle...")
-                    self.send_command('water_change')
-                    
-                elif user_input in ['pump_stop', '7']:
-                    print("\nStopping all pump operations...")
-                    self.send_command('pump_stop')
-                    
                 # System controls
-                elif user_input in ['system_status', '8']:
+                elif user_input in ['system_status', '4']:
                     print("\nRequesting complete system status...")
                     self.status_requested = True
                     self.send_command('system_status')
@@ -224,16 +203,16 @@ def main():
             args = [arg for arg in sys.argv[1:] if not arg.startswith('__')]
             if args:
                 command = args[0].lower()
-                if command in ['start', 'stop', 'status']:
+                if command in ['start', 'stop', 'status', 'system_status']:
                     print(f"Command line mode: sending '{command}'")
-                    if command == 'status':
+                    if command in ['status', 'system_status']:
                         controller.status_requested = True  # Flag to show status when received
                     controller.send_command(command)
                 elif command == 'auto':
                     controller.run_automated_test()
                 else:
                     print(f"Invalid command: {command}")
-                    print("Valid commands: start, stop, status, auto")
+                    print("Valid commands: start, stop, status, system_status, auto")
             else:
                 # No valid arguments, go to interactive mode
                 controller.run_interactive_test()

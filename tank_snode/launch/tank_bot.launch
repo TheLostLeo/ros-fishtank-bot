@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <launch>    
     <!-- IR Sensor Node -->
-    <node name="ir_sensor_node" pkg="tank_snode" type="ir_sensor_node.py" output="screen" launch-prefix="/home/tll/catkin_ws/src/myenv/bin/python3">
+    <node name="ir_sensor_node" pkg="tank_snode" type="ir_sensor_node.py" output="screen">
     </node>
     
     <!-- Motor Node -->
-    <node name="motor_node" pkg="tank_snode" type="motor_node.py" output="screen" launch-prefix="/home/tll/catkin_ws/src/myenv/bin/python3">
+    <node name="motor_node" pkg="tank_snode" type="motor_node.py" output="screen">
     </node>
     
     <!-- Decision Node -->
-    <node name="decision_node" pkg="tank_snode" type="decision_node.py" output="screen" launch-prefix="/home/tll/catkin_ws/src/myenv/bin/python3">
+    <node name="decision_node" pkg="tank_snode" type="decision_node.py" output="screen">
     </node>
     
     <!-- Communication Node -->
-    <node name="comm_node" pkg="tank_snode" type="comm_node.py" output="screen" launch-prefix="/home/tll/catkin_ws/src/myenv/bin/python3">
+    <node name="comm_node" pkg="tank_snode" type="comm_node.py" output="screen">
     </node>
     
 </launch>

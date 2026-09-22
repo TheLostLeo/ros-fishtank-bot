@@ -12,8 +12,9 @@ import time
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv('/home/tll/catkin_ws/src/.env')
+# Load .env from the current catkin workspace or this repository checkout.
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+load_dotenv(os.path.join(REPO_ROOT, '.env'))
 
 class CommNode:
     def __init__(self):

@@ -16,15 +16,16 @@ import time
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv('/home/tll/catkin_ws/src/.env')
+# Load .env from the current catkin workspace or this repository checkout.
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+load_dotenv(os.path.join(REPO_ROOT, '.env'))
 
 class BotController:
     def __init__(self):
         rospy.init_node('bot_controller')
         
         # WebSocket configuration
-        ws_host = os.getenv('WEBSOCKET_HOST', 'localhost')
+        ws_host = os.getenv('TANK_WEBSOCKET_HOST', os.getenv('WEBSOCKET_HOST', 'localhost'))
         ws_port = os.getenv('WEBSOCKET_PORT', '8765')
         self.tank_websocket_uri = f"ws://{ws_host}:{ws_port}"
         

@@ -6,7 +6,6 @@
         type="master_node.py" 
         name="master_brain" 
         output="screen"
-        launch-prefix="/home/tll/catkin_ws/src/myenv/bin/python3"
     />
     
     <!-- Bot Controller Node - WebSocket Communication Handler -->
@@ -15,16 +14,6 @@
         type="bot_controller.py" 
         name="bot_controller" 
         output="screen"
-        launch-prefix="/home/tll/catkin_ws/src/myenv/bin/python3"
-    />
-    
-    <!-- Water Pump Controller Node - Hardware Control -->
-    <node 
-        pkg="master_snode" 
-        type="water_pump_controller.py" 
-        name="water_pump_controller" 
-        output="screen"
-        launch-prefix="/home/tll/catkin_ws/src/myenv/bin/python3"
     />
     
     <!-- Test User Input Node - Interactive Interface -->
@@ -33,6 +22,5 @@
         type="test_user_input.py" 
         name="test_user_input" 
         output="screen"
-        launch-prefix="/home/tll/catkin_ws/src/myenv/bin/python3"
     />
 </launch>
